@@ -2,24 +2,25 @@ package com.dubovskyi.films.domain;
 
 import lombok.Data;
 
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
+@Entity
 public class Session {
 
     @Id
     private long sessionId;
 
+    @ManyToOne
+    private Cinema cinema;
+
     @OneToOne
     @JoinColumn(name = "fk_film")
     private Film film;
     @OneToMany
-    @JoinColumn(name = "fk_ticket")
+   // @JoinColumn(name = "fk_ticket")
     private List<Ticket> tickets;
 
     private LocalDateTime begin;

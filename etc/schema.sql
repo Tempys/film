@@ -18,7 +18,6 @@ create table film (
   film_id integer not null,
   duration integer not null,
   name varchar(255),
-  fk_cinema INTEGER,
   primary key (film_id)
 );
 

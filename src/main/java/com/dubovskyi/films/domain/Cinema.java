@@ -15,6 +15,8 @@ public class Cinema implements Serializable{
     private long cinemaId;
     private String name;
     private String address;
+    @Column(name = "max_user")
+    private Integer maxUser;
 
     @OneToMany(fetch= FetchType.LAZY)
     @JoinColumn(name = "fk_cinema")

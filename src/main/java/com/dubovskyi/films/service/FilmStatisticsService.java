@@ -4,6 +4,7 @@ import com.dubovskyi.films.dao.SessionRepository;
 import com.dubovskyi.films.domain.EarnsStatisticsDto;
 import com.dubovskyi.films.domain.Session;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
@@ -32,7 +33,7 @@ public class FilmStatisticsService {
     }
 
 
-    @Transactional(readOnly = true)
+    @Transactional(propagation = Propagation.NESTED)
     public List<EarnsStatisticsDto> getStatisticsByFilmS(){
        return sessionRepository.calculatesEarnsStatistics().stream().map(i -> {
            long sum =   ((BigInteger) i[0]).longValue();

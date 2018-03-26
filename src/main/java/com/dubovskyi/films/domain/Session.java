@@ -22,6 +22,8 @@ public class Session implements Serializable {
     private long fkFilm;
     @Column(name = "fk_cinema")
     private long fkCinema;
+    @Column(name = "reserve_count")
+    private long reserveCount;
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_session")

@@ -151,7 +151,7 @@ public class CinemaRepositoryTest {
 
     @Test
     public void generateTicket(){
-        for(int i =11;i<=100_000;i++){
+        for(long i =11;i<=100_000;i++){
             Ticket ticket = new Ticket();
             ticket.setClient("Hanry"+i);
             ticket.setPrice(50);

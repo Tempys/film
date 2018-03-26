@@ -1,7 +1,11 @@
+
+
+
 create table cinema (
   cinema_id integer not null,
   address varchar(255),
   name varchar(255),
+  max_user INTEGER,
   primary key (cinema_id)
 );
 
@@ -11,6 +15,7 @@ create table session (
   end_session timestamp(255),
   fk_film integer,
   fk_cinema INTEGER,
+  reserve_count INTEGER DEFAULT 0,
   primary key (session_id)
 );
 
@@ -22,7 +27,7 @@ create table film (
 );
 
 CREATE table ticket (
-  ticket_id integer not null,
+  ticket_id SERIAL not null,
   client varchar(255),
   price integer not null,
   fk_session INTEGER,

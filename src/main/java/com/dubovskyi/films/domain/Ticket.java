@@ -2,10 +2,7 @@ package com.dubovskyi.films.domain;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -13,7 +10,8 @@ import javax.persistence.Table;
 public class Ticket {
 
     @Id
-    private long ticketId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ticketId;
     private int price;
     private String client;
     @Column(name = "fk_session")

@@ -21,6 +21,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -151,17 +152,22 @@ public class CinemaRepositoryTest {
 
     @Test
     public void generateTicket(){
-        for(long i =11;i<=100_000;i++){
+
+        List<Ticket> list = new ArrayList<>();
+        for(long i =11;i<=5_000;i++){
             Ticket ticket = new Ticket();
             ticket.setClient("Hanry"+i);
             ticket.setPrice(50);
-            ticket.setTicketId(i);
+            //ticket.setTicketId(i);
             ticket.setFkSession(generateRandom(1,10_000));
 
-            ticketRepository.save(ticket);
 
 
+            list.add(ticket);
+          //
         }
+
+        ticketRepository.save(list);
     }
 
 

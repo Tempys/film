@@ -10,7 +10,12 @@ import javax.persistence.*;
 public class Ticket {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="course_seq")
+    @SequenceGenerator(
+            name="course_seq",
+            sequenceName="hibernate_sequence",
+            allocationSize=100
+    )
     private Long ticketId;
     private int price;
     private String client;

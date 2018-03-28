@@ -21,11 +21,16 @@ spring:
         database-platform: org.hibernate.dialect.PostgreSQL82Dialect
         database: PostgreSQL
         properties:
-            hibernate.generate_statistics: "false"
+            hibernate.generate_statistics: "true"
             hibernate.use_sql_comments: "true"
             hibernate.format_sql: "true"
             hibernate.show_sql: "true"
             hibernate.hbm2ddl.auto: "none"
+            hibernate.jdbc.batch_size: "1000"
+            hibernate.order_inserts: "true"
+            hibernate.order_updates: "true"
+            hibernate.jdbc.batch_versioned_data: "true"
+
 server:
   port: 8087
 
